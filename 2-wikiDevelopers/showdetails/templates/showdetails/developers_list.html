@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block  title_name%}
+main_page
+{% endblock  %}
+{% block content %}
+<h1>
+    you can find our developers here:
+</h1>
+<ul>
+    {% for developer in developers %}
+    <li>
+        {{developer.first_name}} {{developer.last_name}} as
+        <a href="{% url "show_developers" developer.username %}" >{{developer.username}}</a>
+    </li>
+    {%endfor%}
+</ul>
+{% endblock %}
