@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    header h1 {
+      color: green;
+      text-align: center;
+    }
+  </style>
+    <title>{% block title_name %}not found{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1> our company</h1>
+    </header>
+    {% block content%}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block  title_name%}
+main_page
+{% endblock  %}
+{% block content %}
+<h1>
+    you can find our developers here:
+</h1>
+<ul>
+    {% for developer in developers %}
+    <li>
+        {{developer.first_name}}
+        <a href="{% url "show_developers" developer.last_name %}" >{{developer.last_name}}</a>
+    </li>
+    {%endfor%}
+</ul>
+<h3>
+    add new developer
+</h3>
+<form method='POST'>
+    {%csrf_token%}
+    {{theform}}
+    <button type='submit'> confirm </button>
+</form>
+<h3>
+<a href= "/projects/"> go to projects </a>
+</h3>
+{% endblock %}
