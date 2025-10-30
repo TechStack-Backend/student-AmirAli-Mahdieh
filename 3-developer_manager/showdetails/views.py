@@ -17,7 +17,7 @@ def main_page(request):
     if request.method=='POST':
         theform=DeveloperForm(request.POST)
         if theform.is_valid():
-            data= theform.cleaned_data
+            data= theform.changed_data
             Developer.objects.create(first_name= data["first_name"], last_name=data["last_name"], email=data["email"], age=data["age"])
             developers=Developer.objects.all()
     else:
