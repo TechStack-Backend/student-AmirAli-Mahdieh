@@ -15,9 +15,14 @@ main_page
     {%endfor%}
 </ul>
 <h3>
-<a href= "/projects/"> go to projects </a>
+    add new developer
 </h3>
+<form method='POST'>
+    {%csrf_token%}
+    {{theform}}
+    <button type='submit'> confirm </button>
+</form>
 <h3>
-    
+<a href= "/projects/"> go to projects </a>
 </h3>
 {% endblock %}
