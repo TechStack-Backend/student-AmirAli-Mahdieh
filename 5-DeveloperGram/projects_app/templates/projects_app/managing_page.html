@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title%}
+project managing
+{%endblock%}
+{% block content%}
+{%for project in projects%}
+<li>
+    <h4>
+    {{project}}
+    </h4>
+</li>
+{%endfor%}
+add project
+<form method='POST'>
+    {% csrf_token %}
+    {{the_form}}
+    <button type='submit'>add</button>
+</form>
+{%endblock%}
