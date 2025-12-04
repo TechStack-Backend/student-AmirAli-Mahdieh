@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block  title_name%}
+projects
+{% endblock  %}
+{% block content %}
+<h1>
+    you can find our projects here:
+</h1>
+<ul>
+    {% for project in projects %}
+    <li>
+        {{project}} <b> develops by </b>{% for developer in project.developer_set.all%} <a href="/developers/{{developer.last_name}}">{{developer}} </a>, {% endfor%}
+    </li>
+    {%endfor%}
+</ul>
+<h3>
+    Enter new project
+</h3>
+<div>
+<form method="POST">
+    {% csrf_token %}
+    {{ theform }}
+    <button type="submit"> confirm </button>
+</form>
+</div>
+<h3>
+    <a href="/developers/"> back to main page </a>
+{% endblock %}
