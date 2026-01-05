@@ -1,7 +1,7 @@
 from django.db import models
 
 class Projects(models.Model):
-    title=models.CharField(max_length=50,null=False)
+    title=models.CharField(max_length=10,null=False)
     
 
     class Meta:
