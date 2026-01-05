@@ -1,9 +1,8 @@
 import projects_app.forms as forms
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django import forms
-from .models import Projects
+from .models import Projects, CustomUser
 from django.core.exceptions import ValidationError
 class sign_in_form(AuthenticationForm):
     human=forms.BooleanField(label="i'm human", required=True)
@@ -13,14 +12,15 @@ class sign_in_form(AuthenticationForm):
         self.fields["password"].help_text="\n"
 class sign_up_form(UserCreationForm):    
     class Meta:
-        model=User
-        fields=("username", "password1", "password2")
+        model=CustomUser
+        fields=("mobile","username", "password1", "password2")
         labels={"username":"Your name", "password1":"Your Password"}
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["password1"].help_text="\n"
         self.fields["password2"].help_text="\n"
         self.fields["username"].help_text="\n"
+        self.fields["mobile"].help_text="\n"
 
 class Project_Form(forms.ModelForm):
     class Meta:
