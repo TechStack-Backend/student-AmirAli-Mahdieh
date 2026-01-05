@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+home
+{% endblock title %}
+{% block content %}
+<a href={% url "sign_in" %}> sign_in</a><br>
+<a href={% url "sign_up" %} >sign_up</a><br>
+{% if user.is_authenticated %}
+<a href={% url "logout" %}> logout</a><br>
+{% endif %}
+<a href={% url "managing" %} >manage projects</a><br>
+<a href="/feedback"> give feedback</a><br>
+{% endblock content %}
+
